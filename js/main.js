@@ -14,29 +14,28 @@ const characterBox = document.querySelector("#character-box");
 const baseURL = `https://swapi.info/api/`
 const charURL = `https://swapi.info/api/people/`;
 const filmURL = `https://swapi.info/api/films/`;
-
-const vaderID = '3';
-const tarkinID = '11';
-const jabbaID = '15';
-const palpatineID = '19';
-const bobaID = '20';
-const nuteID = '31';
-const maulID = '42';
-const dookuID = '65';
-const jangoID = '67';
-const grievousID = '77';
-
     
     function getCharacters() {
-        fetch(`${charURL}`)
-        .then((res) => res.json())
-        .then(characters => {
-            
-            const ul =  document.createElement("ul");
 
-            console.log(characters[77].name);
+        const charID = [
+            4, //vader
+            12, //tarkin
+            16, //jabba
+            21, //palpatine
+            22, //boba
+            33, //nute
+            44, //maul
+            67, //dooku
+            69, //jango
+            79 //grievous
+        ];
+        const ul =  document.createElement("ul");
+        
+        charID.forEach(id => {
 
-            characters.forEach(character => {
+            fetch(`${charURL}${id}`)
+            .then((res) => res.json())
+            .then(character => {
 
                 const li = document.createElement("li");
                 const a = document.createElement("a");
@@ -44,23 +43,15 @@ const grievousID = '77';
                 li.appendChild(a);
                 ul.appendChild(li);
                 
-                // randomize the number that is picked
-                // figure out the length of the array then pick a number within that range
-                // console.log(character.films);
-
-                // create a ul
-                // create a li
-                // create an a
-                // add a data attribute to the anchor tag that contains a film 
+                characterBox.appendChild(ul)
             })
-            characterBox.appendChild(ul);
-        })
-        .then(() => {
-            //attach an event listener to each link, calls a new function that makes the second AJAX call
-            // function name is getMovie();
-        })
-        .catch((error) => {
-            console.error(error)
+            .then(() => {
+                //attach an event listener to each link, calls a new function that makes the second AJAX call
+                // function name is getMovie();
+            })
+            .catch((error) => {
+                console.error(error)
+            })
         })
     }
 
