@@ -14,21 +14,31 @@ const characterBox = document.querySelector("#character-box");
 const baseURL = `https://swapi.info/api/`
 const charURL = `https://swapi.info/api/people/`;
 const filmURL = `https://swapi.info/api/films/`;
-    
+
+const charID = [
+        4, //vader
+        12, //tarkin
+        16, //jabba
+        21, //palpatine
+        22, //boba
+        33, //nute
+        44, //maul
+        67, //dooku
+        69, //jango
+        79 //grievous
+    ];
+
+const filmID = [
+    0, //A New Hope
+    1, //The Empire Strikes Back
+    2, //Return of the Jedi
+    3, //The Phantom Menace
+    4, //Attack of the Clones
+    5, //Revenge of the Sith
+]
+
     function getCharacters() {
 
-        const charID = [
-            4, //vader
-            12, //tarkin
-            16, //jabba
-            21, //palpatine
-            22, //boba
-            33, //nute
-            44, //maul
-            67, //dooku
-            69, //jango
-            79 //grievous
-        ];
         const ul =  document.createElement("ul");
         characterBox.appendChild(ul);
         
@@ -41,6 +51,7 @@ const filmURL = `https://swapi.info/api/films/`;
                 const li = document.createElement("li");
                 const a = document.createElement("a");
                 a.textContent = character.name;
+                a.dataset.characterID = charID[i];
                 a.href = "#";
                 li.appendChild(a);
                 ul.appendChild(li);
@@ -51,11 +62,8 @@ const filmURL = `https://swapi.info/api/films/`;
                 const links = document.querySelectorAll("#character-box li a");
 
                 links.forEach(link => {
-                    link.addEventListener("click", () => console.log("clicked"))
+                    link.addEventListener("click", getMovies)
                 })
-
-                //attach an event listener to each link, calls a new function that makes the second AJAX call
-                // function name is getMovie();
             })
             .catch((error) => {
                 console.error(error)
@@ -63,23 +71,30 @@ const filmURL = `https://swapi.info/api/films/`;
         }
     }
 
-    function getMovie() {
+    function getMovies(e) {
+        const characterID = e.currentTarget.dataset.characterID;
 
-        // need to extract data attribute either using event object or "this"
-        fetch(`${filmURL}`)
+        fetch(`${charURL}${characterID}`)
         .then((res) => res.json())
-        .then((movie) => {
+        .then(character => {
+            
+            const movieBox = document.querySelector("#movie-box");
+            movieBox.innerHTML = "";
 
-            // console.log(`img.src="images/poster-${movie.episode_id}.jpg"`);
-            // console.log(movie.title);
-            // console.log(movie.opening_crawl);
+            character.films.forEach(film => {
+                const li = document.createElement("li");
+                const a = document.createElement("a");
+                a.textContent = film;
+                a.href = "#";
+                li.appendChild(a);
+                movieBox.appendChild(li);
+            })
         })
         .catch((error) => {
             console.error(error)
         })
+
     }
-    
-    getMovie();
 
     // Call the function to start
     getCharacters();
