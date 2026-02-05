@@ -1,19 +1,20 @@
 (() => {
 
-const movieBox = document.querySelector("#movies-box");
-const baseURL = `https://swapi.info/api/films/`;
+const characterBox = document.querySelector("#character-box");
+const charURL = `https://swapi.info/api/people/`;
+const filmURL = `https://swapi.info/api/films/`;
     
-    function getMovies() {
-        fetch(`${baseURL}`)
+    function getCharacters() {
+        fetch(`${filmURL}`)
         .then((res) => res.json())
         .then(function(res) {
 
             console.log(res);
 
-            const movies = res;
+            const characters = res;
             const ul = document.createElement("ul");
 
-            movies.forEach((movie, index) => {
+            characters.forEach((movie, index) => {
                 console.log(`Film ${index + 1}: ${movie.title}: ${movie.episode_id}`)
 
                 const li = document.createElement("li");
@@ -25,18 +26,15 @@ const baseURL = `https://swapi.info/api/films/`;
                 ul.appendChild(li);
             })
 
-            movieBox.appendChild(ul);
-
-            
-
-
-
-            
+            characterBox.appendChild(ul);
+        })
+        .then(function() {
+            const links = document.querySelectorAll("movie")
         })
         .catch((error) => console.error(error))
     }
     
 
-    getMovies();
+    getCharacters();
 
 })();
