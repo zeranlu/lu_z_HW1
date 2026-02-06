@@ -121,12 +121,15 @@ const charID = [
 
             const h3 = document.createElement("h3");
             h3.textContent = film.title;
+            h3.className = "anim-1"
 
             const desc = document.createElement("p");
             desc.textContent = `Released: ${film.release_date} | Directed by: ${film.director} | Produced by: ${film.producer}`;
-            
+            desc.className = "anim-2"
+
             const crawl = document.createElement("p");
             crawl.textContent = film.opening_crawl;
+            crawl.className = "anim-3"
             
             crawlBox.appendChild(h3);
             crawlBox.appendChild(desc);

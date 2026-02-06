@@ -54,3 +54,29 @@
         }
     }
 }
+
+#movie-box {
+    background-color: black;
+    margin: 20% 0;
+    border: 3px solid abstracts.$accent-color;
+    border-radius: 1rem;
+}
+
+#crawl-box {
+    font-family: sans-serif;
+    margin: 20% 0;
+        
+        h3 {
+            text-align: center;
+            font-size: 2rem;
+        }
+        
+        h3, p {
+            padding: 5vh 10vw;
+        }
+
+        a {
+            color: abstracts.$body-text-color;
+        }
+
+}
