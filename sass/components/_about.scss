@@ -9,6 +9,7 @@
     border: 3px solid abstracts.$tertiary-color;
     border-radius: 1em;
     padding: 5vh 0;
+    margin-bottom: 20vh;
 
     h3 {
         text-align: center;
@@ -21,6 +22,5 @@
 
     a {
         color: abstracts.$body-text-color;
-        text-decoration: none;
     }
 }
