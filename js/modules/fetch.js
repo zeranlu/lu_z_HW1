@@ -40,7 +40,6 @@ const charID = [
                 const li = document.createElement("li");
                 const a = document.createElement("a");
                 const img = document.createElement("img");
-                const p = document.createElement("p");
 
                 img.src = `../images/characters/${charID[i]}.png`;
                 img.alt = character.name;
