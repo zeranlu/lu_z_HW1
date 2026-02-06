@@ -8,3 +8,29 @@ body {
     background-color: abstracts.$secondary-color;
     font-family: 'starfill', sans-serif;
 }
+
+.logo {
+    display: inline-block;
+    max-width: 25vw;
+    width: 200px;
+
+    svg {
+        width: 100%;
+        height: auto;
+        display: block;
+    }
+
+    svg:hover {
+        transform: scale(110%);
+        transition: 0.3s ease;
+    }
+
+    svg:active {
+        transform: scale(90%);
+        transition: 0.3s ease;
+    }
+}
+
+main {
+    padding-top: 15vh;
+}
