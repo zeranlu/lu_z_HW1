@@ -47,7 +47,7 @@ const charID = [
                 img.className = 'character-img';
 
                 a.textContent = character.name;
-                a.href = '';
+                a.href = '#';
                 a.dataset.characterID = charID[i];
                 a.appendChild(img);
 
@@ -70,6 +70,9 @@ const charID = [
     }
 
     function getMovies(e) {
+
+        e.preventDefault();
+
         const characterID = e.currentTarget.dataset.characterID;
 
         fetch(`${charURL}${characterID}`)
@@ -84,6 +87,7 @@ const charID = [
             character.films.forEach(film => {
                 const li = document.createElement("li");
                 const a = document.createElement("a");
+                a.href = '#';
                 a.textContent = film;
                 a.dataset.film = film;
                 li.appendChild(a);
@@ -103,6 +107,8 @@ const charID = [
     }
 
     function getContent(e) {
+
+        e.preventDefault();
 
         const filmURL = e.currentTarget.dataset.film;
 
