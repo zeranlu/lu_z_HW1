@@ -1,0 +1,30 @@
+@use '../abstracts';
+
+.fetch-con {
+    background-color: abstracts.$secondary-color;
+    border: 3px solid abstracts.$tertiary-color;
+    border-radius: 1em;
+    padding: 10vh;
+    margin-bottom: 20vh;
+
+    ul {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+
+    ul li {
+        flex: 0 0 calc(50% - 0.5rem)
+    }
+
+}
+
+@media screen and (min-width: 768px) {
+
+    .fetch-con {
+    
+        ul li {
+            flex: 0 0 calc(20% - 1rem);
+        }
+    }
+}

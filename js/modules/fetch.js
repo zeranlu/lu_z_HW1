@@ -41,7 +41,6 @@ const charID = [
                 const a = document.createElement("a");
                 a.textContent = character.name;
                 a.dataset.characterID = charID[i];
-                a.href = "#";
                 li.appendChild(a);
                 ul.appendChild(li);
                 
@@ -77,7 +76,6 @@ const charID = [
                 const a = document.createElement("a");
                 a.textContent = film;
                 a.dataset.film = film;
-                a.href = "#";
                 li.appendChild(a);
                 movieBox.appendChild(li);
             });
