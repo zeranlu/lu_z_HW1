@@ -1,0 +1,13 @@
+@use '../abstracts';
+
+#hero {
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    filter: grayscale(100%);
+
+    svg {
+        max-width: 60vw;
+    }
+}

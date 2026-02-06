@@ -1,0 +1,26 @@
+@use '../abstracts';
+
+#about {
+    font-family: sans-serif;
+    text-align: default;
+    justify-content: center;
+    align-items: center;
+    background-color: abstracts.$secondary-color;
+    border: 3px solid abstracts.$tertiary-color;
+    border-radius: 1em;
+    padding: 5vh 0;
+
+    h3 {
+        text-align: center;
+        font-size: 2rem;
+    }
+    
+    h3, p {
+        padding: 5vh 10vw;
+    }
+
+    a {
+        color: abstracts.$body-text-color;
+        text-decoration: none;
+    }
+}
