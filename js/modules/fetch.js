@@ -35,12 +35,22 @@ const charID = [
             
             fetch(`${charURL}${charID[i]}`)
             .then((res) => res.json())
-            .then(character => {
+            .then((character) => {
 
                 const li = document.createElement("li");
                 const a = document.createElement("a");
+                const img = document.createElement("img");
+                const p = document.createElement("p");
+
+                img.src = `../images/characters/${charID[i]}.png`;
+                img.alt = character.name;
+                img.className = 'character-img';
+
                 a.textContent = character.name;
+                a.href = '';
                 a.dataset.characterID = charID[i];
+                a.appendChild(img);
+
                 li.appendChild(a);
                 ul.appendChild(li);
                 
