@@ -1,0 +1,6 @@
+@use '../abstracts';
+
+body {
+    font-family: 'starfill';
+    color: abstracts.$primary-color;
+}

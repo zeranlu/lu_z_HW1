@@ -15,6 +15,5 @@ export function navbar_showhide() {
 
     menuLinks.forEach((link) => {
         link.addEventListener("click", toggleMenu);
-        console.log("menu link clicked");
     });
 }

@@ -86,14 +86,14 @@ ul, li {
 
 .overlay-primary a:hover {
     font-size: 120%;
+    font-family: 'starhollow';
     transition: 0.3s ease;
-    //make this change font styles
 }
 
 .overlay-primary a:active {
     font-size: 80%;
+    font-family: 'starhollow';
     transition: 0.3s ease;
-    //make this change font styles
 }
 
 @media screen and (min-width: 768px) {
@@ -105,10 +105,15 @@ ul, li {
     .overlay-primary {
         display: flex;
         height: auto;
+        width: 100%;
         background-color: none;
         opacity: 1;
         transform: none;
         pointer-events: auto;
+    }
+
+    .overlay-primary.open {
+        backdrop-filter: none;
     }
 
     .overlay-primary nav {

@@ -1,0 +1,10 @@
+@use '../abstracts';
+
+.hidden {
+    display: none;
+}
+
+body {
+    background-color: abstracts.$secondary-color;
+    font-family: 'starfill', sans-serif;
+}
